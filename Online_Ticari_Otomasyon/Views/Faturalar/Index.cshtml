@@ -1,0 +1,40 @@
+﻿@using Online_Ticari_Otomasyon.Models.Siniflar
+@model List<Faturalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px; margin-left:20px;width:1080px;">
+    <tr style="background-color:maroon; color:white;">
+
+        <th>SERİNO</th>
+        <th>SIRANO</th>
+        <th>VERGİ DAİRESİ</th>
+        <th>TARİH</th>
+        <th>SAAT</th>
+        <th>TESLİM EDEN</th>
+        <th>TESLİM ALAN</th>
+        <th>TOPLAM</th>
+        <th>GÜNCELLE</th>
+        <th>DETAYLAR</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+
+            <td>@x.FaturaSeriNo</td>
+            <td>@x.FaturaSıraNo</td>
+            <td>@x.VergiDairesi</td>
+            <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MM/yyyy")</td>
+            <td>@x.Saat</td>
+            <td>@x.TeslimEden</td>
+            <td>@x.TeslimAlan</td>
+            <td>@x.Tutar ₺</td>
+            <td><a href="/Faturalar/FaturaGetir/@x.FaturaID" class="btn btn-default" style="background-color:orangered;color:white; ">Güncelle</a></td>
+            <td><a href="/Faturalar/FaturaDetay/@x.FaturaID" class="btn btn-default" style="background-color:purple;color:white; ">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<a href="/Faturalar/YeniFatura/" class="btn btn-primary" style="margin-left:20px;">Fatura Ekle</a>
+

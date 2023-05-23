@@ -1,0 +1,32 @@
+﻿@using Online_Ticari_Otomasyon.Models.Siniflar
+@model List<Personel>
+@{
+    ViewBag.Title = "DepartmanDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div style="background-color:#E9ECEF; height:50px; width:1080px; text-align:center; margin-top:20px; margin-left:20px;">
+    <h2>@ViewBag.depad Departmanı</h2>
+</div>
+
+<table class="table table-bordered" style="margin-top:20px; margin-left:20px;width:1080px;">
+    <tr style="background-color:maroon; color:white;">
+       
+        <th>AD</th>
+        <th>SOYAD</th>
+        <th>GÖRSEL</th>
+        <th>SATIŞLAR</th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            
+            <td>@x.PersonelAd</td>
+            <td>@x.PersonelSoyad</td>
+            <td><img src="@x.PersonelGorsel" width="100px"  /></td>
+            <td><a href="/Departman/DepartmanSatis/@x.PersonelID" class="btn btn-default" style="background-color:#c2025a;color:white; ">Satışlar</a></td>
+        </tr>
+    }
+</table>
+

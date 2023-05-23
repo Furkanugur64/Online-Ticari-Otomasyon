@@ -1,0 +1,38 @@
+﻿@using Online_Ticari_Otomasyon.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "CariSatis";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div style="background-color:#E9ECEF; height:50px; width:1080px; text-align:center; margin-top:20px; margin-left:20px;">
+    <h2>Müşteri: @ViewBag.cariadı </h2>
+</div>
+
+<table class="table table-bordered" style="margin-top:20px; margin-left:20px;width:1080px;">
+    <tr style="background-color:maroon; color:white;">
+       
+        <th>ÜRÜN</th>
+        <th>PERSONEL</th>
+        <th>FİYAT</th>
+        <th>ADET</th>
+        <th>TOPLAM</th>
+        <th>TARİH</th>
+        <th>YAZDIR</th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+         
+            <td>@x.Urun.UrunAd</td>
+            <td>@x.Personel.PersonelAd @x.Personel.PersonelSoyad</td>
+            <td>@x.Fiyat</td>
+            <td>@x.Adet</td>
+            <td>@x.ToplamTutar</td>
+            <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MM/yyyy")</td>
+            <td><a href="#" class="btn btn-default" style="background-color:Highlight;color:white; ">Yazdır</a></td>
+        </tr>
+    }
+</table>
+

@@ -1,0 +1,39 @@
+﻿@model Online_Ticari_Otomasyon.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "Satis";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1 style="text-align:center; color:red; margin-top:20px;"> Ürün Ekleme Sayfası</h1>
+
+<form method="post" class="form-group">
+
+    <label style="margin-left:30px;"><b> Ürün ID</b></label>
+    <input type="text" name="Urunid" value="@ViewBag.id" class="form-control" style="margin-left:20px;width:1080px;" readonly />
+    <label style="margin-left:30px; margin-top:20px;"><b>Personel Adı</b></label>
+    @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control", @style = "margin-left:20px;width:1080px;" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Müşteri Adı</b></label>
+    @Html.DropDownListFor(x => x.Cariid, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control", @style = "margin-left:20px;width:1080px;" })
+    <label style="margin-left:30px;  margin-top:20px;"><b> Adet</b></label>
+    <input type="number" name="Adet" class="form-control" style="margin-left:20px;width:1080px;" min="0" value="0" max="@ViewBag.stok" id="txt1" onchange="sum();" />
+    <label style="margin-left:30px; margin-top: 20px;"><b> Ürün Fiyatı</b></label>
+    <input type="text" name="Fiyat" value="@ViewBag.fiyat" class="form-control" style="margin-left:20px; width:1080px;" readonly id="txt2" onkeyup="sum();" />
+    <label style="margin-left: 30px; margin-top: 20px;"><b> Toplam Tutar</b></label>
+    <input type="text" name="ToplamTutar" class="form-control" style="margin-left:20px; width:1080px;" readonly id="txt3" />
+
+
+
+    <button class="btn btn-default" style="margin-left:20px; background-color:blue;color:white; margin-top:20px;">Satış Yap</button>
+    <a href="/Urun/Index/" class="btn btn-default" style="margin-left:15px;color:white ;background-color:red;margin-top:20px ">İptal</a>
+</form>
+
+<script>
+    function sum() {
+        var sayi1 = document.getElementById('txt1').value;
+        var sayi2 = document.getElementById('txt2').value;
+        var sonuc = parseInt(sayi1) * parseInt(sayi2);
+        if (!isNaN(sonuc)) {
+            document.getElementById('txt3').value = sonuc;
+        }
+    }
+</script>

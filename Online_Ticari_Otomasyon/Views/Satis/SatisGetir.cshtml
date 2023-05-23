@@ -1,0 +1,28 @@
+﻿@model Online_Ticari_Otomasyon.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "SatisGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("SatisGuncelle", "Satis", FormMethod.Post))
+{
+    <label style="margin-left:30px; margin-top:30px"><b> Satış ID</b></label>
+    @Html.TextBoxFor(x => x.SatisID, new { @class = "form-control", @style = "margin-left:20px; width:1080px", @readonly = "readonly" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Ürün Adı</b></label>
+    @Html.DropDownListFor(x => x.Urunid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control", @style = "margin-left:20px;width:1080px" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Müşteri</b></label>
+    @Html.DropDownListFor(x => x.Cariid, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control", @style = "margin-left:20px;width:1080px " })
+    <label style="margin-left:30px; margin-top:20px;"><b> Personel</b></label>
+    @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control", @style = "margin-left:20px;width:1080px" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Ürün Adeti</b></label>
+    @Html.TextBoxFor(x => x.Adet, new { @class = "form-control", @style = "margin-left:20px;width:1080px" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Ürün Fiyatı</b></label>
+    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control", @style = "margin-left:20px;width:1080px" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Ürün Toplam Tutar</b></label>
+    @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control", @style = "margin-left:20px;width:1080px" })
+
+
+
+    <button class="btn btn-default" style="background-color:orangered;margin-left:20px; margin-top:20px; color:white;">Güncelle</button>
+}
+

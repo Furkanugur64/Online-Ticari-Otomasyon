@@ -1,0 +1,25 @@
+﻿@model Online_Ticari_Otomasyon.Models.Siniflar.Personel
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1 style="text-align:center; color:red; margin-top:20px;"> Ürün Ekleme Sayfası</h1>
+@using(Html.BeginForm("PersonelEkle","Personel",FormMethod.Post,new { enctype = "multipart/form-data" }))
+{
+
+
+    <label style="margin-left:30px;"><b> Personel Adı</b></label>
+    @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control", @style = "margin-left:20px;width:1080px" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Personel Soyadı</b></label>
+    @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control", @style = "margin-left:20px;width:1080px" })
+    @*<label style="margin-left:30px;  margin-top:20px;"><b> Personel Görseli</b></label>
+   <input type="file" name="PersonelGorsel" class="form-control" style="margin-left:20px; width:1080px"/>*@
+    <label style="margin-left:30px; margin-top:20px;"><b> Departman</b></label>
+    @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control", @style = "margin-left:20px;width:1080px" })
+
+
+    <button class="btn btn-default" style="margin-left:20px; background-color:blue;color:white; margin-top:20px;">Kaydet</button>
+    <a href="/Personel/Index/" class="btn btn-default" style="margin-left:15px;color:white ;background-color:red;margin-top:20px ">İptal</a>
+
+}

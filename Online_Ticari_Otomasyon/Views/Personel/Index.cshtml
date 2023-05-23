@@ -1,0 +1,42 @@
+﻿@using Online_Ticari_Otomasyon.Models.Siniflar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px; margin-left:20px;width:1080px;">
+    <tr style="background-color:maroon; color:white;">
+        
+        <th>ADI</th>
+        <th>SOYADI</th>
+        <th>DEPARTMAN</th>
+        <th>GÖRSEL</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+        <th>DETAYLAR</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            
+            <td>@x.PersonelAd</td>
+            <td>@x.PersonelSoyad</td>
+            <td>@x.Departman.DepartmanAd</td>
+            <td>
+                <img src="@x.PersonelGorsel" style="width:100px; " />
+            </td>
+            <td><a href="/Personel/PersonelSil/@x.PersonelID" class="btn btn-default" style="background-color:red;color:white; ">Sil</a></td>
+            <td><a href="/Personel/PersonelGetir/@x.PersonelID" class="btn btn-default" style="background-color:orangered;color:white; ">Güncelle</a></td>
+            <td><a href="/Personel/PersonelListe/" class="btn btn-default" style="background-color:purple;color:white; ">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<a href="/Personel/PersonelEkle/" class="btn btn-primary" style="margin-left:20px; float:left">Personel Ekle</a>
+<div style="margin-left:780px; float:left">
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+</div>
+
+

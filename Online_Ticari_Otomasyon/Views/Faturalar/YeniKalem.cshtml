@@ -1,0 +1,23 @@
+﻿@model Online_Ticari_Otomasyon.Models.Siniflar.FaturaKalem
+@{
+    ViewBag.Title = "YeniKalem";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+    
+    <label style="margin-left:30px;margin-top:30px"><b> Açıklama</b></label>
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px;margin-top:20px;"><b> Miktar</b></label>
+    @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Birim Fiyatı</b></label>
+    @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px;  margin-top:20px;"><b> Tutar</b></label>
+    @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px;margin-top:20px;"><b>  Fatura ID</b></label>
+    @Html.TextBoxFor(x => x.Faturaid, new { @class = "form-control", @style = "margin-left:20px;" })  
+    
+    <button class="btn btn-default" style="margin-left:20px; background-color:blue;color:white; margin-top:20px;">Kaydet</button>
+    <a href="/Faturalar/Index/" class="btn btn-default" style="margin-left:15px;color:white ;background-color:red;margin-top:20px ">İptal</a>
+</form>
+

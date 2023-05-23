@@ -1,0 +1,32 @@
+﻿@using Online_Ticari_Otomasyon.Models.Siniflar
+@model List<FaturaKalem>
+@{
+    ViewBag.Title = "FaturaDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1 style="text-align:center; color:red; margin-top:20px;">Fatura Detay Sayfası</h1>
+<table class="table table-bordered" style="margin-top:20px; margin-left:20px;width:1080px;">
+    <tr style="background-color:maroon; color:white;">
+   
+        <th>AÇIKLAMA</th>
+        <th>MİKTAR</th>
+        <th>BİRİM FİYAT</th>
+        <th>TUTAR</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            
+            <td>@x.Aciklama</td>
+            <td>@x.Miktar</td>
+            <td>@x.BirimFiyat</td>
+            <td>@x.Tutar ₺</td>
+        </tr>
+    }
+</table>
+
+
+<a href="/Faturalar/YeniKalem/" class="btn btn-default" style="background-color:maroon; color:white; margin-left:20px">Yeni Kalem Girişi</a>
+    
+

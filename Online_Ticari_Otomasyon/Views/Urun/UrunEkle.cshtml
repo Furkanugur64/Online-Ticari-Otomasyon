@@ -1,0 +1,30 @@
+﻿@model Online_Ticari_Otomasyon.Models.Siniflar.Urun
+@{
+    ViewBag.Title = "UrunEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1 style="text-align:center; color:red; margin-top:20px;"> Ürün Ekleme Sayfası</h1>
+
+<form method="post" class="form-group">
+
+    <label style="margin-left:30px;"><b> Ürün Adı</b></label>
+    @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Ürün Markası</b></label>
+    @Html.TextBoxFor(x => x.Marka, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Ürün Kategorisi</b></label>
+ @Html.DropDownListFor(x=>x.Kategoriid,(List<SelectListItem>)ViewBag.dgr1, new { @class="form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px;  margin-top:20px;"><b> Stok Sayısı</b></label>
+    @Html.TextBoxFor(x => x.Stok, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px; margin-top: 20px;"><b> Alış Fiyatı</b></label>
+    @Html.TextBoxFor(x => x.AlısFiyat, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left: 30px; margin-top: 20px;"><b> Satış Fiyatı</b></label>
+    @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left: 30px; margin-top: 20px;"><b> Ürün Durumu</b></label>
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left: 30px; margin-top:20px;"><b> Ürün Görseli</b></label>
+    @Html.TextBoxFor(x => x.UrunGorsel, new { @class = "form-control", @style = "margin-left:20px;" })
+
+    <button class="btn btn-default" style="margin-left:20px; background-color:blue;color:white; margin-top:20px;">Kaydet</button>
+    <a href="/Urun/Index/" class="btn btn-default" style="margin-left:15px;color:white ;background-color:red;margin-top:20px ">İptal</a>
+</form>

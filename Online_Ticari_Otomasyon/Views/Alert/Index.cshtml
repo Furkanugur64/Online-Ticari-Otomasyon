@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<h2 style="text-align:center; color:red; margin-top:20px">Sweet Alert Kullanım Örnekleri</h2>
+
+<button class="btn btn-default" style="margin-left:30px;margin-top:20px;background-color:indigo;color:white;" id="Btn1">Alert1</button>
+<button class="btn btn-default" style="margin-left:30px;margin-top:20px;background-color:forestgreen;color:white" id="Btn2">Alert2</button>
+<button class="btn btn-default" style="margin-left:30px;margin-top:20px;background-color:blue;color:white" id="Btn3">Alert3</button>
+<button class="btn btn-default" style="margin-left:30px;margin-top:20px;background-color:orangered;color:white" id="Btn4">Alert4</button>
+<button class="btn btn-default" style="margin-left:30px;margin-top:20px;background-color:red;color:white" id="Btn5">Alert5</button>
+
+
+
+<script>
+    $('#Btn1').click(function () {
+        swal("Merhaba Dünya!");
+    });
+</script>
+<script>
+    $('#Btn2').click(function () {
+        swal("Online Ticari Otomasyon", "FURKAN UĞUR");
+    });
+</script>
+<script>
+    $('#Btn3').click(function () {
+        swal("Good job!", "You clicked the button!", "success");
+    });
+</script>
+<script>
+    $('#Btn4').click(function () {
+        swal("Bas")
+            .then((value) => {
+                swal(`Kandırdım: ${value}`);
+            });
+    });
+</script>
+<script>
+    $('#Btn5').click(function () {
+        swal({
+            title: "Silmek İstiyor musunuz?",
+            text: "Kaydı Silerseniz Tekrar Ulaşamazsınız!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Kayıt Başarıyla Silindi", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Silme İşlemi İptal Edildi");
+                }
+            });
+    });
+</script>

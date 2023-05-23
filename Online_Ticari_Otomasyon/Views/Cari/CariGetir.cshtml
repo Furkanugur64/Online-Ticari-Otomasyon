@@ -1,0 +1,28 @@
+﻿@model Online_Ticari_Otomasyon.Models.Siniflar.Cariler
+@{
+    ViewBag.Title = "CariGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("CariGuncelle", "Cari", FormMethod.Post))
+{
+    <label style="margin-left:30px; margin-top:30px"><b> Müşteri ID</b></label>
+    @Html.TextBoxFor(x => x.CariID, new { @class = "form-control", @style = "margin-left:20px; width:1080px", @readonly = "readonly" })
+
+    <label style="margin-left:30px; margin-top:20px"><b> Müşteri Adı</b></label>
+    @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control", @style = "margin-left:20px; width:1080px" })
+    @Html.ValidationMessageFor(x => x.CariAd, "", new { @style = "color:red" })
+    <br/>
+    <label style="margin-left:30px;"><b> Müşteri Soyadı</b></label>
+    @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control", @style = "margin-left:20px; width:1080px" })
+    @Html.ValidationMessageFor(x => x.CariSoyad, "", new { @style = "color:red" })
+    <br/>
+    <label style="margin-left:30px;"><b> Şehir</b></label>
+    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control", @style = "margin-left:20px; width:1080px" })
+    
+    <label style="margin-left:30px;  margin-top:20px;"><b> Mail Adresi</b></label>
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control", @style = "margin-left:20px; width:1080px" })
+
+
+    <button class="btn btn-default" style="background-color:orangered;margin-left:20px; margin-top:20px; color:white;">Güncelle</button>
+}

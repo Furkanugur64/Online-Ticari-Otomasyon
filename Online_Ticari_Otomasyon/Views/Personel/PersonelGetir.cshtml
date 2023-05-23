@@ -1,0 +1,24 @@
+﻿@model Online_Ticari_Otomasyon.Models.Siniflar.Personel
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <label style="margin-left:30px; margin-top:30px"><b> Personel ID</b></label>
+    @Html.TextBoxFor(x => x.PersonelID, new { @class = "form-control", @style = "margin-left:20px; width:1080px", @readonly = "readonly" })
+    <label style="margin-left:30px; margin-top:20px"><b> Personel Adı</b></label>
+    @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control", @style = "margin-left:20px; width:1080px" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Personel Soyadı</b></label>
+    @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control", @style = "margin-left:20px; width:1080px" })
+    <label style="margin-left:30px;  margin-top:20px;"><b> Personel Görseli</b></label>
+    <input type="file" name="PersonelGorsel" class="form-control"  value="PersonelGorsel" style="margin-left:20px; width:1080px" />
+    <label style="margin-left:30px; margin-top:20px;"><b> Departman</b></label>
+    @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control", @style = "margin-left:20px; width:1080px" })
+
+
+    <button class="btn btn-default" style="background-color:orangered;margin-left:20px; margin-top:20px; color:white;">Güncelle</button>
+}

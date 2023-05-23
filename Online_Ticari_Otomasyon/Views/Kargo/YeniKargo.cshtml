@@ -1,0 +1,21 @@
+﻿@model Online_Ticari_Otomasyon.Models.Siniflar.KargoDetay
+
+@{
+    ViewBag.Title = "YeniKargo";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1 style="text-align:center; color:red; margin-top:20px;"> Kargo Tanımlama Sayfası</h1>
+
+<form method="post" class="form-group" style="margin-top:30px">
+    <label style="margin-left:30px;margin-top:20px"><b> Takip Kodu</b></label>
+    <input type="text" name="TakipKodu" value="@ViewBag.takip" class="form-control" readonly style="margin-left:30px; width:1080px"/>
+    <label style="margin-left:30px;margin-top:20px"><b> Personel</b></label>
+    @Html.TextBoxFor(x => x.Personel, new { @class = "form-control", @style = "margin-left:30px; width:1080px" })
+    <label style="margin-left:30px;margin-top:20px"><b> Alıcı</b></label>
+    @Html.TextBoxFor(x => x.Alici, new { @class = "form-control", @style = "margin-left:30px; width:1080px" })
+    <label style="margin-left:30px;margin-top:20px"><b> Açıklama</b></label>
+    @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control", @style = "margin-left:30px; width:1080px" })
+    <button class="btn btn-default" style="background-color:blue; color:white; margin-top:30px;margin-left:30px;">Kaydet</button>
+</form>
+

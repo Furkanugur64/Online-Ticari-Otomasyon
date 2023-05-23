@@ -1,0 +1,21 @@
+﻿@using Online_Ticari_Otomasyon.Models.Siniflar
+@model List<KargoTakip>
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center;color:red;margin-top:20px;margin-bottom:20px"> Kargo Sahibi: @ViewBag.d1</h2>
+<table class="table table-bordered" style="margin-left:20px; width:1080px">
+    <tr style="background-color:maroon; color:white;">
+        <th>Açıklama</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Aciklama</td>
+            <td>@Convert.ToDateTime(x.TarihZaman).ToString("dd/MM/yyyy")</td>
+        </tr>
+    }
+</table>

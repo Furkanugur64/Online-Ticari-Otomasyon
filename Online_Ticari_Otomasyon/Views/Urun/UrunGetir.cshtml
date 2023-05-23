@@ -1,0 +1,29 @@
+﻿@model Online_Ticari_Otomasyon.Models.Siniflar.Urun
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("UrunGuncelle", "Urun", FormMethod.Post))
+{
+    <label style="margin-left:30px; margin-top:30px"><b> Ürün ID</b></label>
+    @Html.TextBoxFor(x => x.UrunID, new { @class = "form-control", @style = "margin-left:20px; width:1080px", @readonly="readonly" })
+    <label style="margin-left:30px; margin-top:20px"><b> Ürün Adı</b></label>
+    @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control", @style = "margin-left:20px; width:1080px" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Ürün Markası</b></label>
+    @Html.TextBoxFor(x => x.Marka, new { @class = "form-control", @style = "margin-left:20px; width:1080px" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Ürün Kategorisi</b></label>
+    @Html.DropDownListFor(x => x.Kategoriid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control", @style = "margin-left:20px; width:1080px" })
+    <label style="margin-left:30px;  margin-top:20px;"><b> Stok Sayısı</b></label>
+    @Html.TextBoxFor(x => x.Stok, new { @class = "form-control", @style = "margin-left:20px; width:1080px" })
+    <label style="margin-left:30px; margin-top: 20px;"><b> Alış Fiyatı</b></label>
+    @Html.TextBoxFor(x => x.AlısFiyat, new { @class = "form-control", @style = "margin-left:20px; width:1080px" })
+    <label style="margin-left: 30px; margin-top: 20px;"><b> Satış Fiyatı</b></label>
+    @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control", @style = "margin-left:20px; width:1080px" })
+    <label style="margin-left: 30px; margin-top: 20px;"><b> Ürün Durumu</b></label>
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control", @style = "margin-left:20px; width:1080px" })
+    <label style="margin-left: 30px; margin-top:20px;"><b> Ürün Görseli</b></label>
+    @Html.TextBoxFor(x => x.UrunGorsel, new { @class = "form-control", @style = "margin-left:20px; width:1080px" })
+
+    <button class="btn btn-default" style="background-color:orangered;margin-left:20px; margin-top:20px; color:white;">Güncelle</button>
+}

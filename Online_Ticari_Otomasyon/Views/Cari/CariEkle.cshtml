@@ -1,0 +1,25 @@
+﻿@model Online_Ticari_Otomasyon.Models.Siniflar.Cariler
+@{
+    ViewBag.Title = "CariEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<h1 style="text-align:center; color:red; margin-top:20px;"> Müşteri Ekleme Sayfası</h1>
+
+<form method="post" class="form-group">
+
+    <label style="margin-left:30px;"><b> Müşteri Adı</b></label>
+    @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Müşteri Soyadı</b></label>
+    @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Şehir</b></label>
+    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px;  margin-top:20px;"><b> Mail Adresi</b></label>
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control", @style = "margin-left:20px;" })
+
+
+    <button class="btn btn-default" style="margin-left:20px; background-color:blue;color:white; margin-top:20px;">Kaydet</button>
+    <a href="/Cari/Index/" class="btn btn-default" style="margin-left:15px;color:white ;background-color:red;margin-top:20px ">İptal</a>
+</form>
+

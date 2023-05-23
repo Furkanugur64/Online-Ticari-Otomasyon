@@ -1,0 +1,51 @@
+﻿@using Online_Ticari_Otomasyon.Models.Siniflar
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+@using (Html.BeginForm("Index", "Urun", FormMethod.Get))
+{
+    <div style="width:350px; height:40px; background-color:darkblue; margin-left:30px; padding-top:5px; padding-left:20px">
+        <p style="color:white;">
+            Ürün Adı: @Html.TextBox("p")
+            <input type="submit" value="Ara" />
+        </p>
+    </div>
+}
+
+<table class="table table-bordered" style="margin-top:20px; margin-left:20px;width:1080px;">
+    <tr style="background-color:maroon; color:white;">
+        <th>ÜRÜN ADI</th>
+        <th>MARKA</th>
+        <th>STOK</th>
+        <th>ALIŞ FİYATI</th>
+        <th>SATIŞ FİYATI</th>
+        <th>KATEGORİ</th>
+        <th>ÜRÜN GÖRSEL</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+        <th>SATIŞ YAP</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.UrunAd</td>
+            <td>@x.Marka</td>
+            <td>@x.Stok</td>
+            <td>@x.AlısFiyat ₺</td>
+            <td>@x.SatisFiyat ₺</td>
+            <td>@x.Kategori.KategoriAd</td>
+            <td>
+                <img src="@x.UrunGorsel" style="width:90px" />
+            </td>
+            <td><a href="/Urun/UrunSil/@x.UrunID" class="btn btn-default" style="background-color:red; color:white;">Sil</a></td>
+            <td><a href="/Urun/UrunGetir/@x.UrunID" class="btn btn-default" style="background-color:orangered; color:white;">Güncelle</a></td>
+            <td><a href="/Urun/Satis/@x.UrunID" class="btn btn-default" style="background-color:blue; color:white;">Satış Yap</a></td>
+
+        </tr>
+    }
+</table>
+<a href="/Urun/UrunEkle/" class="btn btn-primary" style="margin-left:20px;">Yeni Ürün</a>
+

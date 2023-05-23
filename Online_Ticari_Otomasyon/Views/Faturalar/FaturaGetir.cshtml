@@ -1,0 +1,28 @@
+﻿@model Online_Ticari_Otomasyon.Models.Siniflar.Faturalar
+@{
+    ViewBag.Title = "FaturaGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("FaturaGuncelle", "Faturalar", FormMethod.Post))
+{
+    <label style="margin-left:30px; margin-top:30px"><b> Fatura ID</b></label>
+    @Html.TextBoxFor(x => x.FaturaID, new { @class = "form-control", @style = "margin-left:20px; width:1080px", @readonly = "readonly" })
+    <label style="margin-left:30px;"><b> Fatura Seri No</b></label>
+    @Html.TextBoxFor(x => x.FaturaSeriNo, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px;margin-top:20px;"><b> Fatura Sıra No</b></label>
+    @Html.TextBoxFor(x => x.FaturaSıraNo, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px; margin-top:20px;"><b> Tarih</b></label>
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px;  margin-top:20px;"><b> Saat</b></label>
+    @Html.TextBoxFor(x => x.Saat, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px;margin-top:20px;"><b>  Vergi Dairesi</b></label>
+    @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px;margin-top:20px;"><b> Teslim Eden</b></label>
+    @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control", @style = "margin-left:20px;" })
+    <label style="margin-left:30px;margin-top:20px;"><b> Teslim Alan</b></label>
+    @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control", @style = "margin-left:20px;" })
+    <button class="btn btn-default" style="background-color:orangered;margin-left:20px; margin-top:20px; color:white;">Güncelle</button>
+}

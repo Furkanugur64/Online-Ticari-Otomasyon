@@ -1,0 +1,17 @@
+﻿@model Online_Ticari_Otomasyon.Models.Siniflar.Kategori
+@{
+    ViewBag.Title = "KategoriGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("KategoriGuncelle", "Kategori", FormMethod.Post))
+{
+<label style="margin-left:30px; margin-top:30px"><b>Kategori ID</b></label>
+@Html.TextBoxFor(x => x.KategoriID, new { @class = "form-control", @readonly = "readonly", @style = "margin-left:30px; width:1080px" })
+<br />
+<label style="margin-left:30px;"><b> Kategori ID</b></label>
+@Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control", @style = "margin-left:30px; width:1080px" })
+<br />
+
+<button class="btn btn-default" style="background-color:green;margin-left:30px; color:white;">Güncelle</button>
+}

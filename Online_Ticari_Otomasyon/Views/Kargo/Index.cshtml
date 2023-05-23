@@ -1,0 +1,40 @@
+﻿@using Online_Ticari_Otomasyon.Models.Siniflar
+@model List<KargoDetay>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+@using (Html.BeginForm("Index", "Kargo", FormMethod.Get))
+{
+    <div style="width:370px; height:40px; background-color:orangered; margin-left:30px; padding-top:5px; padding-left:20px">
+        <p style="color:white;">
+            Kargo Takip No: @Html.TextBox("p")
+            <input type="submit" value="Ara" />
+        </p>
+    </div>
+}
+<h2 style="text-align:center; color:red;margin-top:20px; margin-bottom:20px">KARGO DETAYLARI</h2>
+
+<table class="table table-bordered" style="margin-left:20px; width:1080px">
+    <tr style="background-color:maroon; color:white;">
+        <th>TAKİP KODU</th>
+        <th>PERSONEL</th>
+        <th>ALICI</th>
+        <th>TARİH</th>
+        <th>DETAYLAR</th>
+        <th>QR OLUŞTUR</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.TakipKodu</td>
+            <td>@x.Personel</td>
+            <td>@x.Alici</td>
+            <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MM/yyyy")</td>
+            <td><a href="/Kargo/Detay/@x.TakipKodu" class="btn btn-default" style="background-color:green;color:white">Detaylar</a></td>
+            <td><a href="/Kargo/QR/" class="btn btn-default" style="background-color:magenta;color:white">QR Oluştur</a></td>
+        </tr>
+    }
+</table>
+<a href="/Kargo/YeniKargo/" class="btn btn-primary" style="background-color:dodgerblue; margin-left:20px">Yeni Kargo</a>

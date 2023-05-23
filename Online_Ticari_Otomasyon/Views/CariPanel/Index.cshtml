@@ -1,0 +1,33 @@
+﻿@model Online_Ticari_Otomasyon.Models.Siniflar.Cariler
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/CariLayout.cshtml";
+}
+<br />
+<h2 style="text-align:center; margin-bottom:20px; color:red;">Profilim</h2>
+
+@using (Html.BeginForm("Index2", "CariPanel", FormMethod.Post))
+{
+    <table class="table table-bordered">
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CariID, new { @class = "form-control", @readonly = "readonly" })</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CariSifre, new { @class = "form-control" })</td>
+        </tr>
+
+    </table>
+    <button class="btn btn-primary" style="background-color:orangered; color:white;">Bilgilerimi Güncelle</button>
+}
